@@ -382,6 +382,12 @@ hr {
 	    deleteNoteById(id);
 	  }
 	});
+
+     function updateWindowSize() {
+	  const w = window.innerWidth;
+	  const h = window.innerHeight;
+	  windowSizeSpan.textContent = `${w} x ${h} px`;
+	}
 </script>
 </body>
 </html>
