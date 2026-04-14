@@ -252,6 +252,7 @@ hr {
  	// ── STATE ─────────────────────────────────────────
     let notes = [];   // each entry: { id, title, content }
     let nextId = 1;
+
     // ── DOM REFERENCES ───────────────────────────────
 	const notesContainer = document.getElementById("notesContainer");
 	const titleInput = document.getElementById("noteTitle");
@@ -261,6 +262,12 @@ hr {
 	const noteCounterSpan = document.getElementById("noteCounter");
 	const windowSizeSpan = document.getElementById("windowSize");
 	const userAgentSpan = document.getElementById("userAgent"); 
+
+	function updateCounter() {
+     const count = notes.length;
+     noteCounterSpan.textContent =
+       count === 1 ? "1 note" : `${count} notes`;
+     }
  </script>
 </body>
 </html>
