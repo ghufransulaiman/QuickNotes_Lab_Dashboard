@@ -388,6 +388,8 @@ hr {
 	  const h = window.innerHeight;
 	  windowSizeSpan.textContent = `${w} x ${h} px`;
 	}
+	
+	window.addEventListener("resize", updateWindowSize);
 </script>
 </body>
 </html>
