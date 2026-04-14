@@ -313,13 +313,19 @@ footer {
 
 	  // delete button
 	  const deleteBtn = document.createElement("button");
-	  deleteBtn.textContent = "🗑 Delete";
-	  deleteBtn.classList.add("delete-note");
-	  deleteBtn.setAttribute("data-action", "delete");
-	  deleteBtn.setAttribute("data-id", note.id);
+		deleteBtn.textContent = "🗑 Delete";
+		deleteBtn.classList.add("delete-note");
+		deleteBtn.setAttribute("data-action", "delete");
+		deleteBtn.setAttribute("data-id", note.id);
 
-	  titleDiv.appendChild(titleSpan);
-	  titleDiv.appendChild(deleteBtn);
+		const editBtn = document.createElement("button");
+		editBtn.textContent = "✏ Edit";
+		editBtn.setAttribute("data-action", "edit");
+		editBtn.setAttribute("data-id", note.id);
+
+		titleDiv.appendChild(titleSpan);
+		titleDiv.appendChild(editBtn);
+		titleDiv.appendChild(deleteBtn);
 
 	  // content paragraph
 	  const contentP = document.createElement("p");
@@ -386,7 +392,21 @@ footer {
      
 
      notesContainer.addEventListener("click", (e) => {
-	  // find the closest ancestor (or self) that is a delete button
+	  const editTarget = e.target.closest('[data-action="edit"]');
+	  if (editTarget) {
+	    const id = parseInt(editTarget.getAttribute("data-id"), 10);
+	    const found = notes.find(n => n.id === id);
+
+	    if (found) {
+	      const newTitle = prompt("New title:", found.title);
+	      if (newTitle !== null && newTitle.trim() !== "") {
+	        found.title = newTitle.trim();
+	        renderNotes();
+	      }
+	    }
+	    return;
+	  }
+
 	  const btn = e.target.closest('[data-action="delete"]');
 	  if (btn) {
 	    const id = parseInt(btn.getAttribute("data-id"), 10);
