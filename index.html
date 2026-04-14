@@ -249,14 +249,13 @@ footer {
     🗑 Clear all notes
   </button>
 </div>
-
-   <footer>
-     🧠BOM: confirm() on delete • alert() on empty title
-     • resize event updates window size.
-   </footer>
-
-     </div>
+</div>
     <!-- all content goes here -->
+     <footer>
+	     🧠 BOM: confirm() on delete • alert() on empty title
+	     • resize event updates window size.
+	    </footer>
+
     </div>
 
  <script>
@@ -365,6 +364,7 @@ footer {
 	    notes.splice(index, 1);
 	    renderNotes();
 	  }
+	}
 	  function clearAllNotes() {
 		  if (notes.length === 0) {
 		    alert("📭 No notes to clear.");
@@ -382,7 +382,7 @@ footer {
 		    alert("✨ All notes have been cleared.");
 		  }
 		}
-}
+
      
 
      notesContainer.addEventListener("click", (e) => {
