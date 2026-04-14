@@ -454,7 +454,13 @@ footer {
 
 	  addBtn.addEventListener("click", addNote);
 	  clearAllBtn.addEventListener("click", clearAllNotes);
-	}
+
+	  titleInput.addEventListener("keydown", (e) => {
+		 if (e.key === "Enter") {
+		   addNote();
+	  }
+	});
+  }
 
 	init(); // ← call init when the page loads
 </script>
